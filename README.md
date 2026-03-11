@@ -48,76 +48,44 @@ curl --version
 Input Format
 
 The script expects input as JSON.
-
-Argument	Description
-uniprots	List of UniProt accession IDs
-taxonomy_ids	List of NCBI taxonomy IDs used to restrict BLAST searches
-species_names	Names of species associated with the taxonomy IDs
-e_value	E-value threshold (pipeline compatibility parameter)
-reviewed_only	Boolean flag retained for compatibility with upstream pipeline
-
-Example input:
-{
-  "uniprots": ["P45856", "O31714"],
-  "taxonomy_ids": ["562", "83333"],
-  "species_names": ["Escherichia coli", "Bacillus subtilis"],
-  "e_value": "1e-5",
-  "reviewed_only": true
-}
 ## Running the Script
 
 Example execution:
 
 python blast_pipeline.py blast_inputs.json
 
-Example Output
-***************************************************
-#Query: P12345, Species: Homo_sapiens_Mus_musculus
-#Uniprot_ID    Species      Evalue
-***************************************************
-Q9XYZ1  Mus_musculus  3.2e-45
 
-Output columns:
-
-Column	Description
-UniProt_ID	Accession ID of the best BLAST hit
-Species	Organism of the hit
-Evalue	BLAST expectation value
-Logging
-
-The script generates a log file:
+The script generates a log file for traceability and reproducibility of pipeline runs.:
 
 uniprot_blast.log
 
 The log records:
 
-sequence retrieval attempts
+- sequence retrieval attempts
 
-BLAST submission status
+- BLAST submission status
 
-job  progress
+- job  progress
 
-result retrieval
+- result retrieval
 
-errors or network failures
-
-This logging supports traceability and reproducibility of pipeline runs.
+- errors or network failures
 
 ## Design Features
 
 The script incorporates several design practices commonly used in bioinformatics pipelines:
 
-API-based data retrieval (UniProt)
+- API-based data retrieval (UniProt)
 
-Automated BLAST job submission
+- Automated BLAST job submission
 
-Retry logic for network robustness
+- Retry logic for network robustness
 
-Asynchronous job polling
+- Asynchronous job polling
 
-XML result parsing
+- XML result parsing
 
-structured logging for debugging and reproducibility
+- structured logging for debugging and reproducibility
 
 ## Notes
 
