@@ -1,0 +1,7 @@
+{
+  "uniprots": ["P45856", "O31714"],
+  "taxonomy_ids": ["562", "83333"],
+  "species_names": ["Escherichia coli", "Bacillus subtilis"],
+  "e_value": "1e-5",
+  "reviewed_only": true
+}
